@@ -1,0 +1,43 @@
+BACK TO THE PET / PLUS/4 — BUILD NOTES
+
+Requirements: Python 3 and Java (Kick Assembler 5.25 is included from the
+supplied project). No tools are needed simply to run the release PRGs.
+
+Run:
+    python3 build.py
+
+The build assembles and compresses Noise, resolves its resident clock address,
+assembles NTSC and PAL, and generates Plus/4 self-extracting PRGs with Exomizer.
+Results, ordinary PRGs, symbols, and logs appear in build/.
+
+Linux x86-64: the tested ZX02 and Exomizer tools are included.
+Windows: Exomizer is included. For the supplied unchanged Noise, run:
+    python build.py --use-prebuilt-noise
+To rebuild Noise on Windows, provide ZX02 on PATH or set ZX02 to its path;
+alternatively install a C compiler and set CC to it.
+macOS / other platforms: set ZX02 and EXOMIZER to native tools, or compile
+ZX02 from tools/zx02-src and Exomizer from tools/exomizer-src.
+    make -C tools/exomizer-src CFLAGS='-O2 -Wall'
+The Exomizer CFLAGS override removes its historical i686 tuning requirement.
+
+Other options:
+    --no-pack              Ordinary PRGs without the self-extracting wrapper.
+    --use-prebuilt-noise   Reuse the supplied Noise payload; checks its clock
+                           address against the assembled resident program.
+Environment overrides: KICKASS_JAR, ZX02, EXOMIZER, CC.
+
+Source layout:
+  src/demo.asm      Shared resident runtime, sequence, menu, replay handling.
+  src/ntsc.asm      NTSC wrapper, PAL=false.
+  src/pal.asm       PAL wrapper, PAL=true.
+  src/noise.asm     Noise overlay, rebuilt at $D000.
+  src/*.asm        Resident scenes, helpers, music player, ZX02 decoder.
+  src/*.zx02       Inherited packed scenes, music, character and sample data.
+  src/res/         Assets referenced by the resident scene sources.
+
+Some inherited Plus/4 overlays are available only as the supplied packed
+binary assets. This package rebuilds the final PRGs, resident code and Noise;
+it does not claim to restore missing assembly sources for every old overlay.
+
+The included tool sources preserve their original copyright notices.
+The build script changes no original files in src/: it builds staged copies.

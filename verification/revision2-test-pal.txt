@@ -1,0 +1,152 @@
+(C:$d90c)   ADDR A  X  Y  SP 00 01 NV-BDIZC LIN CYC  STOPWATCH
+.;d90c 00 00 00 f2 0f d8 00100011 257 001    9668227
+(C:$d90c) 
+Loading '/workspace/work/revision2/build/BackToThePET_Plus4_PAL.prg' from 1001 to 8027 (7027 bytes)
+(C:$d90c) 
+Deleting all checkpoints
+(C:$d90c) 
+BREAK: 1  C:$20db  (Stop on exec)
+(C:$d90c) 
+#1 (Stop on  exec 20db)    3/$003,  33/$21
+.C:20db  20 0D 10    JSR $100D      - A:00 X:00 Y:00 SP:f2 ..-..IZC   23297415
+(C:$20db) 
+RUN 1
+(C:$20db) 
+Deleting all checkpoints
+(C:$20db) 
+BREAK: 1  C:$25a8  (Stop on exec)
+(C:$20db) 
+#1 (Stop on  exec 25a8)  180/$0b4,  49/$31
+.C:25a8  20 EA 7A    JSR $7AEA      - A:00 X:A6 Y:06 SP:f2 ..-...ZC  398631145
+(C:$25a8) 
+Deleting all checkpoints
+(C:$25a8) 
+BREAK: 1  C:$d000  (Stop on exec)
+(C:$25a8) 
+#1 (Stop on  exec d000)   67/$043,  57/$39
+.C:d000  4C 03 D0    JMP $D003      - A:08 X:00 Y:00 SP:f0 ..-.....  402708591
+(C:$d000) 
+Saving file '/workspace/work/installed-noise.bin' from $d000 to $d979
+(C:$d000) 
+>C:ff09  21 a8 cc                                             !.L
+(C:$ff0c) 
+Deleting all checkpoints
+(C:$ff0c) 
+BREAK: 1  C:$d090  (Stop on exec)
+(C:$ff0c) 
+Will ignore the next 16 hits of checkpoint #1
+(C:$ff0c) 
+#1 (Stop on  exec d090)   80/$050, 107/$6b
+.C:d090  AE 91 D4    LDX $D491      - A:1C X:1C Y:19 SP:f0 N.-.....  403563755
+(C:$d090) 
+Saving file '/workspace/work/pal-noise-screen-0.bin' from $9c00 to $9fe7
+(C:$d090) 
+(C:$d090) 
+Deleting all checkpoints
+(C:$d090) 
+BREAK: 1  C:$d430  (Stop on exec)
+(C:$d090) 
+#1 (Stop on  exec d430)   86/$056,   3/$03
+.C:d430  A9 00       LDA #$00       - A:A4 X:A4 Y:19 SP:f0 ..-...ZC  415123935
+(C:$d430) 
+Deleting all checkpoints
+(C:$d430) 
+BREAK: 1  C:$20db  (Stop on exec)
+(C:$d430) 
+#1 (Stop on  exec 20db)    3/$003,  33/$21
+.C:20db  20 0D 10    JSR $100D      - A:00 X:00 Y:00 SP:ff ..-..IZC  424966839
+(C:$20db) 
+RUN 2
+(C:$20db) 
+Deleting all checkpoints
+(C:$20db) 
+BREAK: 1  C:$25a8  (Stop on exec)
+(C:$20db) 
+#1 (Stop on  exec 25a8)  180/$0b4,  49/$31
+.C:25a8  20 EA 7A    JSR $7AEA      - A:00 X:A6 Y:06 SP:ff ..-...ZC  800300569
+(C:$25a8) 
+Deleting all checkpoints
+(C:$25a8) 
+BREAK: 1  C:$d000  (Stop on exec)
+(C:$25a8) 
+#1 (Stop on  exec d000)   67/$043,  57/$39
+.C:d000  4C 03 D0    JMP $D003      - A:08 X:00 Y:00 SP:fd ..-.....  804378015
+(C:$d000) 
+Saving file '/workspace/work/installed-noise.bin' from $d000 to $d979
+(C:$d000) 
+>C:ff09  21 a8 cc                                             !.L
+(C:$ff0c) 
+Deleting all checkpoints
+(C:$ff0c) 
+BREAK: 1  C:$d090  (Stop on exec)
+(C:$ff0c) 
+Will ignore the next 16 hits of checkpoint #1
+(C:$ff0c) 
+#1 (Stop on  exec d090)   80/$050, 107/$6b
+.C:d090  AE 91 D4    LDX $D491      - A:1C X:1C Y:19 SP:fd N.-.....  805233179
+(C:$d090) 
+Saving file '/workspace/work/pal-noise-screen-1.bin' from $9c00 to $9fe7
+(C:$d090) 
+(C:$d090) 
+Deleting all checkpoints
+(C:$d090) 
+BREAK: 1  C:$d430  (Stop on exec)
+(C:$d090) 
+#1 (Stop on  exec d430)   86/$056,   3/$03
+.C:d430  A9 00       LDA #$00       - A:A4 X:A4 Y:19 SP:fd ..-...ZC  816793359
+(C:$d430) 
+Deleting all checkpoints
+(C:$d430) 
+BREAK: 1  C:$20db  (Stop on exec)
+(C:$d430) 
+#1 (Stop on  exec 20db)    3/$003,  33/$21
+.C:20db  20 0D 10    JSR $100D      - A:00 X:00 Y:00 SP:ff ..-..IZC  826636263
+(C:$20db) 
+RUN 3
+(C:$20db) 
+Deleting all checkpoints
+(C:$20db) 
+BREAK: 1  C:$25a8  (Stop on exec)
+(C:$20db) 
+#1 (Stop on  exec 25a8)  180/$0b4,  49/$31
+.C:25a8  20 EA 7A    JSR $7AEA      - A:00 X:A6 Y:06 SP:ff ..-...ZC 1201969993
+(C:$25a8) 
+Deleting all checkpoints
+(C:$25a8) 
+BREAK: 1  C:$d000  (Stop on exec)
+(C:$25a8) 
+#1 (Stop on  exec d000)   67/$043,  57/$39
+.C:d000  4C 03 D0    JMP $D003      - A:08 X:00 Y:00 SP:fd ..-..... 1206047439
+(C:$d000) 
+Saving file '/workspace/work/installed-noise.bin' from $d000 to $d979
+(C:$d000) 
+>C:ff09  21 a8 cc                                             !.L
+(C:$ff0c) 
+Deleting all checkpoints
+(C:$ff0c) 
+BREAK: 1  C:$d090  (Stop on exec)
+(C:$ff0c) 
+Will ignore the next 16 hits of checkpoint #1
+(C:$ff0c) 
+#1 (Stop on  exec d090)   80/$050, 107/$6b
+.C:d090  AE 91 D4    LDX $D491      - A:1C X:1C Y:19 SP:fd N.-..... 1206902603
+(C:$d090) 
+Saving file '/workspace/work/pal-noise-screen-2.bin' from $9c00 to $9fe7
+(C:$d090) 
+(C:$d090) 
+Deleting all checkpoints
+(C:$d090) 
+BREAK: 1  C:$d430  (Stop on exec)
+(C:$d090) 
+#1 (Stop on  exec d430)   86/$056,   3/$03
+.C:d430  A9 00       LDA #$00       - A:A4 X:A4 Y:19 SP:fd ..-...ZC 1218462783
+(C:$d430) 
+Deleting all checkpoints
+(C:$d430) 
+BREAK: 1  C:$20db  (Stop on exec)
+(C:$d430) 
+#1 (Stop on  exec 20db)    3/$003,  33/$21
+.C:20db  20 0D 10    JSR $100D      - A:00 X:00 Y:00 SP:ff ..-..IZC 1228305687
+(C:$20db) 
+Deleting all checkpoints
+(C:$20db) 

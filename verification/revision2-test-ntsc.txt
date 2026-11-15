@@ -1,0 +1,152 @@
+(C:$d90a)   ADDR A  X  Y  SP 00 01 NV-BDIZC LIN CYC  STOPWATCH
+.;d90a 00 00 00 f2 0f d8 00100011 229 000    7732050
+(C:$d90a) 
+Loading '/workspace/work/revision2/build/BackToThePET_Plus4_NTSC.prg' from 1001 to 7F92 (6F92 bytes)
+(C:$d90a) 
+Deleting all checkpoints
+(C:$d90a) 
+BREAK: 1  C:$20db  (Stop on exec)
+(C:$d90a) 
+#1 (Stop on  exec 20db)    3/$003,  61/$3d
+.C:20db  20 0D 10    JSR $100D      - A:00 X:00 Y:00 SP:f2 ..-..IZC   21087211
+(C:$20db) 
+RUN 1
+(C:$20db) 
+Deleting all checkpoints
+(C:$20db) 
+BREAK: 1  C:$25a8  (Stop on exec)
+(C:$20db) 
+#1 (Stop on  exec 25a8)  241/$0f1,  87/$57
+.C:25a8  20 E5 7A    JSR $7AE5      - A:00 X:A6 Y:06 SP:f2 ..-...ZC  402528729
+(C:$25a8) 
+Deleting all checkpoints
+(C:$25a8) 
+BREAK: 1  C:$d000  (Stop on exec)
+(C:$25a8) 
+#1 (Stop on  exec d000)  216/$0d8,   1/$01
+.C:d000  4C 03 D0    JMP $D003      - A:02 X:00 Y:00 SP:f0 ..-.....  406677445
+(C:$d000) 
+Saving file '/workspace/work/installed-noise.bin' from $d000 to $d979
+(C:$d000) 
+>C:ff09  21 a2 f0                                             !..
+(C:$ff0c) 
+Deleting all checkpoints
+(C:$ff0c) 
+BREAK: 1  C:$d090  (Stop on exec)
+(C:$ff0c) 
+Will ignore the next 16 hits of checkpoint #1
+(C:$ff0c) 
+#1 (Stop on  exec d090)  107/$06b,  19/$13
+.C:d090  AE 91 D4    LDX $D491      - A:1F X:20 Y:19 SP:f0 N.-.....  407620813
+(C:$d090) 
+Saving file '/workspace/work/noise-screen-0.bin' from $9c00 to $9fe7
+(C:$d090) 
+(C:$d090) 
+Deleting all checkpoints
+(C:$d090) 
+BREAK: 1  C:$d430  (Stop on exec)
+(C:$d090) 
+#1 (Stop on  exec d430)  122/$07a, 107/$6b
+.C:d430  A9 00       LDA #$00       - A:A4 X:A5 Y:19 SP:f0 ..-...ZC  419241263
+(C:$d430) 
+Deleting all checkpoints
+(C:$d430) 
+BREAK: 1  C:$20db  (Stop on exec)
+(C:$d430) 
+#1 (Stop on  exec 20db)    3/$003,  61/$3d
+.C:20db  20 0D 10    JSR $100D      - A:00 X:00 Y:00 SP:ff ..-..IZC  428158183
+(C:$20db) 
+RUN 2
+(C:$20db) 
+Deleting all checkpoints
+(C:$20db) 
+BREAK: 1  C:$25a8  (Stop on exec)
+(C:$20db) 
+#1 (Stop on  exec 25a8)  241/$0f1,  87/$57
+.C:25a8  20 E5 7A    JSR $7AE5      - A:00 X:A6 Y:06 SP:ff ..-...ZC  809599701
+(C:$25a8) 
+Deleting all checkpoints
+(C:$25a8) 
+BREAK: 1  C:$d000  (Stop on exec)
+(C:$25a8) 
+#1 (Stop on  exec d000)  216/$0d8,   1/$01
+.C:d000  4C 03 D0    JMP $D003      - A:02 X:00 Y:00 SP:fd ..-.....  813748417
+(C:$d000) 
+Saving file '/workspace/work/installed-noise.bin' from $d000 to $d979
+(C:$d000) 
+>C:ff09  21 a2 f0                                             !..
+(C:$ff0c) 
+Deleting all checkpoints
+(C:$ff0c) 
+BREAK: 1  C:$d090  (Stop on exec)
+(C:$ff0c) 
+Will ignore the next 16 hits of checkpoint #1
+(C:$ff0c) 
+#1 (Stop on  exec d090)  107/$06b,  19/$13
+.C:d090  AE 91 D4    LDX $D491      - A:1F X:20 Y:19 SP:fd N.-.....  814691785
+(C:$d090) 
+Saving file '/workspace/work/noise-screen-1.bin' from $9c00 to $9fe7
+(C:$d090) 
+(C:$d090) 
+Deleting all checkpoints
+(C:$d090) 
+BREAK: 1  C:$d430  (Stop on exec)
+(C:$d090) 
+#1 (Stop on  exec d430)  122/$07a, 107/$6b
+.C:d430  A9 00       LDA #$00       - A:A4 X:A5 Y:19 SP:fd ..-...ZC  826312235
+(C:$d430) 
+Deleting all checkpoints
+(C:$d430) 
+BREAK: 1  C:$20db  (Stop on exec)
+(C:$d430) 
+#1 (Stop on  exec 20db)    3/$003,  61/$3d
+.C:20db  20 0D 10    JSR $100D      - A:00 X:00 Y:00 SP:ff ..-..IZC  835229155
+(C:$20db) 
+RUN 3
+(C:$20db) 
+Deleting all checkpoints
+(C:$20db) 
+BREAK: 1  C:$25a8  (Stop on exec)
+(C:$20db) 
+#1 (Stop on  exec 25a8)  241/$0f1,  87/$57
+.C:25a8  20 E5 7A    JSR $7AE5      - A:00 X:A6 Y:06 SP:ff ..-...ZC 1216670673
+(C:$25a8) 
+Deleting all checkpoints
+(C:$25a8) 
+BREAK: 1  C:$d000  (Stop on exec)
+(C:$25a8) 
+#1 (Stop on  exec d000)  216/$0d8,   1/$01
+.C:d000  4C 03 D0    JMP $D003      - A:02 X:00 Y:00 SP:fd ..-..... 1220819389
+(C:$d000) 
+Saving file '/workspace/work/installed-noise.bin' from $d000 to $d979
+(C:$d000) 
+>C:ff09  21 a2 f0                                             !..
+(C:$ff0c) 
+Deleting all checkpoints
+(C:$ff0c) 
+BREAK: 1  C:$d090  (Stop on exec)
+(C:$ff0c) 
+Will ignore the next 16 hits of checkpoint #1
+(C:$ff0c) 
+#1 (Stop on  exec d090)  107/$06b,  19/$13
+.C:d090  AE 91 D4    LDX $D491      - A:1F X:20 Y:19 SP:fd N.-..... 1221762757
+(C:$d090) 
+Saving file '/workspace/work/noise-screen-2.bin' from $9c00 to $9fe7
+(C:$d090) 
+(C:$d090) 
+Deleting all checkpoints
+(C:$d090) 
+BREAK: 1  C:$d430  (Stop on exec)
+(C:$d090) 
+#1 (Stop on  exec d430)  122/$07a, 107/$6b
+.C:d430  A9 00       LDA #$00       - A:A4 X:A5 Y:19 SP:fd ..-...ZC 1233383207
+(C:$d430) 
+Deleting all checkpoints
+(C:$d430) 
+BREAK: 1  C:$20db  (Stop on exec)
+(C:$d430) 
+#1 (Stop on  exec 20db)    3/$003,  61/$3d
+.C:20db  20 0D 10    JSR $100D      - A:00 X:00 Y:00 SP:ff ..-..IZC 1242300127
+(C:$20db) 
+Deleting all checkpoints
+(C:$20db) 
