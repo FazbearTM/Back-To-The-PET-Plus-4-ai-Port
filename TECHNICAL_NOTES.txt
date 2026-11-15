@@ -1,0 +1,96 @@
+BACK TO THE PET / PLUS/4 — TECHNICAL NOTES
+
+Based on the M276 assembly and resources inside the supplied PRG archive.
+The separately supplied M258 source is an upper-RAM diagnostic patch, not a
+playable Noise implementation.
+
+Problems found:
+
+1. M276 places the character-density fade at $7BF5, with its loop and state
+   continuing above $7C00. The PET charset is loaded at $7C00, overwriting
+   executable code. This contradicts the old source comment claiming the
+   deconstruction routine is wholly below the charset.
+
+2. The inherited M272 packed charset/Noise bank begins at $B000. The runtime
+   unpacks every music part to $B000. That bank cannot remain valid until
+   the end of Voice.
+
+3. Noise at $9000 overwrites the stable overlay ABI at $9180 and the permanent
+   packed Voice sample at $9200. Its old random buffer at $3000 also overlaps
+   resident code. That memory layout cannot support repeated demo playback.
+
+4. Checkmate's block-to-character scratch table at $9000 overwrites part of
+   a candidate replacement Noise bank. VICE store watchpoints caught the
+   write at resident PC $7274 in the intermediate build. Its scratch table
+   has therefore moved to $A100.
+
+5. Voice expands 2,063 sample bytes at $7000-$780E inclusive, replacing late
+   resident scene code. Waves originally also consumes its own source region:
+   it is copied from $D000 before that region becomes the overlay destination.
+   Neither resource arrangement by itself supports replay.
+
+Final arrangement:
+
+$100D-$10FF   Direct keyboard helper, below the Morph packed bank.
+$1100...     Existing permanent packed Morph/music bank.
+$1F20-$1FFF  Save/restore helpers for the resident region displaced by Voice.
+$2000...     Menu, sequence, runtime and resident scenes.
+             Both builds assert that resident code ends below $7C00.
+$7000-$78FF  Saved to $E000-$E8FF before Voice; restored before menu restart.
+$7C00-$7FFF  Existing live 1 KB PET character set.
+$8000...     Existing packed charset and music resources.
+$8F27-$9126  First 512 bytes of packed Noise; Checkmate scratch moved away.
+$9180...     Stable overlay ABI, retained across every run.
+$9200-$9651  Existing packed Voice sample, retained.
+$9652...     Remaining packed Noise, asserted below $9800.
+$9800-$9BFF  Live TED attributes.
+$9C00-$9FFF  Live TED screen matrix.
+$A000-$A0FF  Noise random buffer, after earlier framebuffer use has ended.
+$A100-$A1FF  Checkmate scratch, before Noise uses the framebuffer region.
+$A400...     Existing ZX02 decoder.
+$A600...     Existing packed Greets/music bank.
+$B000...     Music during the demo; temporary contiguous Noise stream at end.
+$B600...     Existing packed Petflip source.
+$C800...     Existing packed Bump/Voice overlay source.
+$D000...     Scene overlays. Noise now also executes here, below $E000.
+$E000-$E8FF  Temporary resident backup after the last overlay using this area.
+$F000-$FB55  Immutable packed Waves source, retained for replay.
+
+Noise retains the supplied PET-style unrolled column renderer and tile table.
+It uses the existing live PET charset with TED's reverse-character handling,
+instead of installing another charset over resident memory.
+
+Noise timing uses elapsed IRQ clock ticks rather than a guessed count of
+renderer iterations. Its 16 phases advance at 26-tick intervals, and the
+scene ends after at least 420 logical ticks. The same character-density fade
+is called after Voice and after Noise.
+
+Before re-entering the introduction, replay restores the resident backup and
+resets the stack. The menu keeps IRQs masked, scans the Plus/4 keyboard
+matrix directly, waits for release, and uses a raster-polled typing delay.
+Starting a run reinstalls the demo's raster IRQ.
+
+REVISION 2: PAL uses TED timer 1, IRQ mask $08, with reload 14779 at
+886723.5 Hz. The periodic interrupt clocks PM2, the overlay frame-count ABI,
+and graphics waits. There is one PM2 update per interrupt, with no double
+ticks. A graphics wait consumes a fresh tick rather than a backlog.
+
+ROM menu restoration sets $FF12 bit 2 and $FF13=$D4 explicitly. Floor resets
+fl_frame/fl_done at entry so its outro frame does not survive replay. The
+screen stays disabled until font/screen initialization is complete.
+
+The revised resident IRQ and scene addresses are resolved by assembly; the
+fixed ABI at $9180 remains unchanged. The build script regenerates the Noise
+payload after resolving its resident clock address.
+
+Assembly assertions check the resident/charset boundary, helper gaps and
+packed Noise bank limits. The build script resolves Noise's resident clock
+address automatically and verifies that NTSC and PAL share that ABI address.
+
+Executable optimization uses Exomizer's Plus/4 target and suppresses its
+border-flashing effect. Both normal literal handling and compatibility mode
+were compared; normal handling produced the smaller NTSC file.
+
+Source provenance: resident helpers/assets from the user-supplied M273/M276
+packages; comparison reference from Macc's C64 source repository. Original
+credits in the demo and third-party copyright notices remain applicable.

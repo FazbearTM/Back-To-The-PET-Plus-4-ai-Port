@@ -1,0 +1,148 @@
+BACK TO THE PET — COMMODORE PLUS/4 PORT
+Revision 2 — replay visuals and PAL timing fixes
+Release summary / material for GitHub and Plus/4 World
+Prepared 15 November 2026
+
+SHORT DESCRIPTION
+
+A Commodore Plus/4 port of Shiru's Back to the PET demo, with separate NTSC
+and PAL builds. The Plus/4 port is by FazbearTM, drawing on the original PET
+demo and Macc's C64 port. The first release completed the Noise scene and the
+return to the introduction, allowing the demo to be started again repeatedly
+without reloading.
+
+CREDITS
+
+Original PET demo, code, graphics and music: Shiru / shiru8bit
+C64 port: Macc
+Commodore Plus/4 port: FazbearTM
+Completion, debugging and build assistance for this revision: OpenAI Codex
+ZX02 compression/decompression: Daniel Serpell, based on Einar Saukas's ZX0
+Exomizer executable compression: Magnus Lind
+
+FazbearTM is the credit to use for the Plus/4 port. The introduction already
+contains that credit. Preserve the original demo and tool authors' credits
+when adapting this text for publication.
+
+WHAT THIS REVISION DOES
+
+* Voice finishes with the PET-style character-density deconstruction.
+* Noise follows it, using PET character graphics and TED hardware noise.
+* Noise runs for about seven seconds, through its 16 visual/sound phases.
+* Noise then uses the character-density deconstruction and returns to the
+  introduction and colour-selection menu.
+* The demo can be started again without reloading. Packed resources and the
+  resident code displaced by Voice are preserved for subsequent runs.
+* NTSC and PAL are separate PRGs. PAL has adjusted runtime timing and TED
+  music pitch tables.
+* Release PRGs are compressed, self-extracting Plus/4 executables.
+
+CONTROLS AND REQUIREMENTS
+
+A standard 64 KB Commodore Plus/4, or a correctly configured Plus/4 emulator.
+Choose the PRG matching the machine's video standard.
+
+At the introduction:
+    1  Purple (default)
+    2  Green (original PET look)
+    3  Amber / orange
+    Any other key starts the demo.
+
+After the demo returns to the introduction, choose a colour or start again.
+The program intentionally stays in the demo/menu loop; it does not exit to
+BASIC at the end.
+
+FILES AND SIZE
+
+BackToThePET_Plus4_NTSC.prg     28,564 bytes
+BackToThePET_Plus4_PAL.prg      28,713 bytes
+
+Both ordinary, uncompressed build images are 60,247 bytes. Executable
+compression reduces their disk-file sizes by approximately 52.6% (NTSC)
+and 52.4% (PAL). It does not reduce the required 64 KB machine RAM.
+The Noise overlay itself is 671 bytes compressed with ZX02, compared with
+984 bytes for the inherited LZSS payload.
+
+This is an optimized release build, not a claim of a mathematically minimum
+possible executable size. Further changes could trade speed, fidelity,
+maintainability or resource organization for additional savings.
+
+NTSC / PAL NOTES
+
+The NTSC build retains the established NTSC scene and music clock.
+The PAL runtime uses TED timer 1 to generate evenly spaced music/graphics
+clock ticks at approximately 60 Hz on a 50 Hz display. It does not double
+music updates on selected raster frames. Timer reload is 14779, clocked at
+886723.5 Hz. Its TED music frequency-divider tables are adjusted for PAL.
+
+The inherited cycle-timed speech routine is retained. PAL's CPU clock makes
+that speech approximately 0.9% slower; it has not been resampled or rewritten.
+Heavy drawing can still limit presentation rate. These builds do not promise
+identical individual raster frames on the two video standards.
+
+TESTING AND LIMITATIONS
+
+Tested with VICE xplus4 3.9, using Plus/4 NTSC and PAL models:
+
+* Three complete runs of each Revision 2 compressed release build.
+* Returned introduction screenshots were pixel-identical across all three
+  checked runs, separately for each video standard.
+* NTSC ordinary-build checks found all 1000 screen cells blank at Maze entry
+  on both the first and second runs.
+* Full NTSC and PAL traces contain the same 5054 pitch events in the same
+  order through the Voice endpoint. In the first 4500 pitch events, neither
+  trace contains event spacing below 8 ms; PAL no longer collapses updates
+  together on every fifth raster interrupt.
+* Noise, deconstruction, menu return and repeated playback still complete.
+* The original revision's emulator keyboard check established key 2 for
+  green, Space to start and Space to restart; keyboard logic is unchanged.
+
+Real-hardware playback and a listening check of the revised PAL timing are
+still needed. No claim is made that the large user-supplied video recording
+was inspected: it exceeded the environment's 32 MiB attachment-transfer limit.
+
+Three consecutive release runs support replay stability; they do not prove
+an infinite-duration run. No real Plus/4 hardware test is claimed.
+
+SOURCE AND BUILD NOTES
+
+The source package includes the resident assembly, Noise source, supplied
+packed scene/music assets, build instructions, and the tools used here.
+It rebuilds both final PRGs. Some historical Plus/4 overlays were supplied
+only as packed binary assets; their missing original assembly sources have
+not been reconstructed.
+
+The main fixes address memory lifetime conflicts, rather than adding another
+late diagnostic hold. Details are in TECHNICAL_NOTES.txt.
+
+REFERENCES
+
+Original demo / Shiru:
+https://shiru.untergrund.net/
+https://www.pouet.net/prod.php?which=92595
+
+C64 reference source:
+https://github.com/AbelVincze/Backtothepet-c64-ai-port
+Reference checkout: 98098761b8f87ca33c0de0e5e9445d39d75c278c
+
+Plus/4 keyboard reference:
+https://plus4world.powweb.com/plus4encyclopedia/500012
+
+This summary describes the delivered revision. Review the wording, credits
+and hardware-test results before using it as a public release announcement.
+
+REVISION 2 CHANGES
+
+1. Restore TED's ROM character source ($FF12 bit 2) and the menu font address
+   ($FF13=$D4) on every return. Previously the menu inherited the PET font.
+2. Reset Floor's fl_frame and fl_done at scene entry. The previous outro left
+   frame 72/done 1; replay read beyond floor_data, leaving @ signs into Maze.
+3. PAL now uses regularly spaced TED timer-1 IRQs rather than 6 updates per
+   5 raster frames. This prevents a short note from being immediately
+   replaced by the extra update on the same interrupt.
+4. The graphics wait uses a fresh clock tick and does not carry frame debt
+   between scenes, preventing accumulated fast-forward around later scenes.
+5. Display is disabled while switching the menu/demo font and clearing its
+   screen, avoiding transitional glyph flashes.
+
+Plus/4 port credit remains FazbearTM.
