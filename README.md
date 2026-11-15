@@ -6,6 +6,9 @@ demo and Macc's C64 port. I also improved the Demo a little bit with it by addin
 
 The Plus/4 has it's own limitations, the music was one for example, The TED chip doesn't have as low of frequencies as the other 8-Bit Commodore Computers have, so the Timeline scene had it's music shifted up 1 frequency. It's recognizable now. The Maze scene has the other Music issue, I couldn't get an arrangement for it to work so I left it with a note missing. as it better represents it. Graphics had no issue with it at all.
 
+This release has been verified to run great on the VICE Plus/4 Emulator by a Human, Me!
+At this time, I'm unable to test on a Real Plus/4 until mine is repaired but will be repaired shortly.
+
 ## Controls and Requirements
 
 A standard 64 KB Commodore Plus/4, or a correctly configured Plus/4 emulator.
