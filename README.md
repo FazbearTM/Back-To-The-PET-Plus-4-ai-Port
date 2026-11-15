@@ -8,6 +8,7 @@ The Plus/4 has it's own limitations, the music was one for example, The TED chip
 
 This release has been verified to run great on the VICE Plus/4 Emulator by a Human, Me!
 At this time, I'm unable to test on a Real Plus/4 until mine is repaired but will be repaired shortly.
+I will be uploading this to Plus/4 World for all users to enjoy
 
 ## Controls and Requirements
 
@@ -36,3 +37,29 @@ and 52.4% (PAL). It does not reduce the required 64 KB machine RAM.
 The Noise overlay itself is 671 bytes compressed with ZX02, compared with
 984 bytes for the inherited LZSS payload.
 
+### NTSC / PAL NOTES
+
+The NTSC build retains the established NTSC scene and music clock.
+The PAL runtime uses TED timer 1 to generate evenly spaced music/graphics
+clock ticks at approximately 60 Hz on a 50 Hz display. It does not double
+music updates on selected raster frames. Timer reload is 14779, clocked at
+886723.5 Hz. Its TED music frequency-divider tables are adjusted for PAL.
+
+The inherited cycle-timed speech routine is retained. PAL's CPU clock makes
+that speech approximately 0.9% slower; it has not been resampled or rewritten.
+Heavy drawing can still limit presentation rate. These builds do not promise
+identical individual raster frames on the two video standards.
+
+Real-hardware playback and a listening check of the revised PAL timing are
+still needed. No claim is made that the large user-supplied video recording
+was inspected: it exceeded the environment's 32 MiB attachment-transfer limit.
+
+## References
+
+Original demo / Shiru:
+https://shiru.untergrund.net/
+https://www.pouet.net/prod.php?which=92595
+
+C64 reference source:
+https://github.com/AbelVincze/Backtothepet-c64-ai-port
+Reference checkout: 98098761b8f87ca33c0de0e5e9445d39d75c278c
