@@ -10,6 +10,8 @@ This release has been verified to run great on the VICE Plus/4 Emulator by a Hum
 At this time, I'm unable to test on a Real Plus/4 until mine is repaired but will be repaired shortly.
 I will be uploading this to Plus/4 World for all users to enjoy
 
+if you test on an actual Plus/4, feel free to email the results to B.Gouthro@Hotmail.com, I would love to see it running!
+
 ## Controls and Requirements
 
 A standard 64 KB Commodore Plus/4, or a correctly configured Plus/4 emulator.
